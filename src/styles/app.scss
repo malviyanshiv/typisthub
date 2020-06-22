@@ -1,0 +1,9 @@
+$base-red: red;
+
+.focused {
+    color: green;
+    text-decoration: underline;
+}
+.danger {
+    background: $base-red;
+}
