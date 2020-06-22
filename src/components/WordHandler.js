@@ -6,7 +6,7 @@ class WordHandler extends React.Component {
         this.state = {
             targetWord: props.targetWord,
             currentWord: "",
-            errorCount: 0,
+            totalCount: 0,
             isValid: true,
         };
         this.onChange = this.onChange.bind(this);
@@ -22,23 +22,23 @@ class WordHandler extends React.Component {
         }
 
         const size = currentWord.length;
-        let errorCount = this.state.errorCount;
+        let totalCount = this.state.totalCount;
         let isValid = this.state.isValid;
+        if (this.state.currentWord.length < size) {
+            totalCount++;
+        }
         if (this.state.targetWord.startsWith(currentWord) === false) {
-            if (this.state.currentWord.length < size) {
-                errorCount++;
-            }
             isValid = false;
         } else {
             isValid = true;
         }
 
         if (currentWord.substr(0, size) === this.state.targetWord) {
-            return this.props.moveNext(this.state.errorCount);
+            return this.props.moveNext(totalCount);
         }
 
         this.setState(() => ({
-            errorCount,
+            totalCount,
             currentWord,
             isValid,
         }));

@@ -17,7 +17,7 @@ export default class TypeRacer extends React.Component {
                 "overcome.",
             ],
             textIndex: 0,
-            errorCount: 0,
+            totalCount: 0,
             characterCount: 0,
             startTime: new Date(),
         };
@@ -26,9 +26,9 @@ export default class TypeRacer extends React.Component {
     }
 
     moveNext = (cnt) => {
-        let { errorCount, textIndex } = this.state;
+        let { totalCount, textIndex } = this.state;
         this.setState(() => ({
-            errorCount: errorCount + cnt,
+            totalCount: totalCount + cnt,
             textIndex: textIndex + 1,
             characterCount:
                 this.state.characterCount + this.state.text[textIndex].length,
@@ -38,12 +38,13 @@ export default class TypeRacer extends React.Component {
     getWPM = () => {
         const wordCnt = this.state.characterCount / 5;
         const timeInterval = new Date() - this.state.startTime;
-        return parseInt((wordCnt * 60000) / timeInterval);
+        const WPM = parseInt((wordCnt * 60000) / timeInterval);
+        return isNaN(WPM) ? 0 : WPM;
     };
 
     getAccuracy = () => {
-        const { errorCount, characterCount } = this.state;
-        return parseInt((characterCount * 100) / (errorCount + characterCount));
+        const { totalCount, characterCount } = this.state;
+        return parseInt((characterCount * 100) / totalCount);
     };
 
     render() {
