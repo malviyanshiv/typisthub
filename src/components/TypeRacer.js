@@ -1,6 +1,6 @@
 import React from "react";
-import WordHandler from "../components/WordHandler";
-import TextPresenter from "../components/TextPresenter";
+import WordHandler from "./WordHandler";
+import TextPresenter from "./TextPresenter";
 
 export default class TypeRacer extends React.Component {
     constructor(props) {
