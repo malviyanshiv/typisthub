@@ -46,13 +46,13 @@ class WordHandler extends React.Component {
     render() {
         return (
             <div>
-                <form>
+                <form className="word-form">
                     <input
                         type="text"
                         value={this.state.currentWord}
                         onChange={this.onChange}
                         autoFocus={true}
-                        className={this.state.isValid ? "" : "danger"}
+                        className={this.state.isValid ? "" : "error"}
                     />
                 </form>
             </div>

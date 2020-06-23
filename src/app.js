@@ -15,7 +15,7 @@ class App extends React.Component {
     }
 
     onChange = (e) => {
-        const name = e.target.value;
+        const name = e.target.value.trim();
         this.setState({
             name,
         });
@@ -24,9 +24,8 @@ class App extends React.Component {
     onSubmit = (e) => {
         e.preventDefault();
         const name = this.state.name;
-        name.trim();
         if (name.length === 0) {
-            return alert("Please enter the name");
+            return alert("Please enter your alias to practice");
         }
         this.setState({
             isSubmitted: true,
@@ -36,19 +35,25 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                {this.state.isSubmitted ? (
-                    <GameLauncher user={this.state.name} />
-                ) : (
-                    <form onSubmit={this.onSubmit}>
-                        <input
-                            type="text"
-                            value={this.state.name}
-                            onChange={this.onChange}
-                            placeholder="Enter your alias"
-                        />
-                        <button>Play</button>
-                    </form>
-                )}
+                <div className="header">
+                    <div className="header__title">Welcome to typistHub</div>
+                    <div className="header__subtitle">learn skill with fun</div>
+                </div>
+                <div className="container">
+                    {this.state.isSubmitted ? (
+                        <GameLauncher user={this.state.name} />
+                    ) : (
+                        <form onSubmit={this.onSubmit} className="user-form">
+                            <input
+                                type="text"
+                                value={this.state.name}
+                                onChange={this.onChange}
+                                placeholder="Enter your alias"
+                            />
+                            <button>Practice Now</button>
+                        </form>
+                    )}
+                </div>
             </div>
         );
     }

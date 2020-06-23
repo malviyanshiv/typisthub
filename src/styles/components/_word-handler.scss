@@ -1,0 +1,14 @@
+.word-form {
+    margin: 2rem 0;
+
+    input {
+        padding: 1rem;
+        border: 1px solid;
+        border-radius: 0.3rem;
+        font-size: 2rem;
+    }
+
+    .error {
+        background: #ff9b9b;
+    }
+}

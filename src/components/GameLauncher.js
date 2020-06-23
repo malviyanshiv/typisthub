@@ -69,7 +69,7 @@ class GameLauncher extends React.Component {
         return (
             <div>
                 {this.state.isLoading ? (
-                    <h1>Loading...</h1>
+                    <div className="loader">Loading</div>
                 ) : this.state.seconds === 0 ? (
                     <TypeRacer
                         key={this.state.gameId}
@@ -78,9 +78,13 @@ class GameLauncher extends React.Component {
                         onNewGame={this.loadNewGame}
                     />
                 ) : (
-                    <div>
-                        <h1>Welcome {this.state.user}</h1>
-                        <h1>{this.state.seconds}</h1>
+                    <div className="center-container">
+                        <p className="welcome-message">
+                            Get ready {this.state.user}
+                        </p>
+                        <div className="timer-container">
+                            {this.state.seconds}
+                        </div>
                     </div>
                 )}
             </div>

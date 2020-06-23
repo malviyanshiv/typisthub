@@ -49,21 +49,19 @@ export default class TypeRacer extends React.Component {
                             text={this.state.text}
                             idx={this.state.textIndex}
                         />
-                        <h1>{this.state.text[this.state.textIndex]}</h1>
                         <WordHandler
                             key={this.state.textIndex}
                             moveNext={this.moveNext}
                             targetWord={this.state.text[this.state.textIndex]}
                         />
-                        <p>{this.getWPM()}</p>
                     </div>
                 ) : (
-                    <div>
-                        <h1>Thankyou {this.state.user}</h1>
+                    <div className="final-score">
+                        <h1>Awesome {this.state.user}!!!</h1>
                         <h1> Speed : {this.getWPM()} WPM</h1>
                         <h1> Accuracy : {this.getAccuracy()}%</h1>
                         <button onClick={() => this.props.onNewGame()}>
-                            Try Another
+                            Improve your score
                         </button>
                     </div>
                 )}

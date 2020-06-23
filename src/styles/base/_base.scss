@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    color: $dark-grey;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: $m-size;
+    line-height: 1.6;
+}
+
+#app {
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.container {
+    max-width: 60vw;
+    margin: 0 auto;
+    padding: 0 $m-size;
+}

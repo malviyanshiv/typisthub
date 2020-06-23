@@ -1,0 +1,29 @@
+.user-form {
+    max-width: 35rem;
+    margin: auto;
+    margin-top: 10rem;
+    text-align: center;
+    padding: 4rem;
+    box-shadow: 1px 2px $grey;
+    background: $off-white;
+    border-radius: 1px;
+
+    input {
+        width: 25rem;
+        height: 4.5rem;
+        border-radius: 0.5rem;
+        padding: 5px;
+        margin: auto;
+        display: block;
+    }
+
+    button {
+        width: 15rem;
+        height: 4.5rem;
+        border-radius: 0.5rem;
+        margin-top: 2rem;
+        background: $dark-blue;
+        color: white;
+        cursor: pointer;
+    }
+}

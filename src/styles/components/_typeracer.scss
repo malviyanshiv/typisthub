@@ -1,0 +1,14 @@
+.final-score {
+    margin: 10rem auto;
+    text-align: center;
+
+    button {
+        width: 15rem;
+        height: 4.5rem;
+        border-radius: 0.5rem;
+        margin-top: 2rem;
+        background: $dark-blue;
+        color: white;
+        cursor: pointer;
+    }
+}
