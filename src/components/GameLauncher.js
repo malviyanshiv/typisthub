@@ -1,8 +1,6 @@
 import React from "react";
 import TypeRacer from "./TypeRacer";
 
-const API = "http://localhost:3000/text";
-
 class GameLauncher extends React.Component {
     constructor(props) {
         super(props);
@@ -30,7 +28,7 @@ class GameLauncher extends React.Component {
             isLoading: true,
         });
 
-        fetch(API)
+        fetch("/text")
             .then((response) => response.json())
             .then((data) =>
                 this.setState(
