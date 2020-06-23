@@ -1,42 +1,53 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import TypeRacer from "./components/TypeRacer";
+import GameLauncher from "./components/GameLauncher";
 import "./styles/app.scss";
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            seconds: 3,
+            name: "",
+            isSubmitted: false,
         };
+
+        this.onChange = this.onChange.bind(this);
     }
 
-    componentDidMount() {
-        this.interval = setInterval(() => {
-            const seconds = this.state.seconds;
-            if (seconds > 0) {
-                this.setState(() => ({
-                    seconds: seconds - 1,
-                }));
-            }
+    onChange = (e) => {
+        const name = e.target.value;
+        this.setState({
+            name,
+        });
+    };
 
-            if (seconds === 0) {
-                clearInterval(this.interval);
-            }
-        }, 1000);
-    }
-
-    componentWillUnmount() {
-        clearInterval(this.interval);
-    }
+    onSubmit = (e) => {
+        e.preventDefault();
+        const name = this.state.name;
+        name.trim();
+        if (name.length === 0) {
+            return alert("Please enter the name");
+        }
+        this.setState({
+            isSubmitted: true,
+        });
+    };
 
     render() {
         return (
             <div>
-                {this.state.seconds === 0 ? (
-                    <TypeRacer />
+                {this.state.isSubmitted ? (
+                    <GameLauncher user={this.state.name} />
                 ) : (
-                    <h1>{this.state.seconds}</h1>
+                    <form onSubmit={this.onSubmit}>
+                        <input
+                            type="text"
+                            value={this.state.name}
+                            onChange={this.onChange}
+                            placeholder="Enter your alias"
+                        />
+                        <button>Play</button>
+                    </form>
                 )}
             </div>
         );

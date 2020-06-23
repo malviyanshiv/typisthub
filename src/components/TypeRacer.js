@@ -5,17 +5,10 @@ import TextPresenter from "./TextPresenter";
 export default class TypeRacer extends React.Component {
     constructor(props) {
         super(props);
+        console.log("this ", this.props.user);
         this.state = {
-            text: [
-                "This ",
-                "case ",
-                "sensitive ",
-                "data ",
-                "is ",
-                "impressive ",
-                "to ",
-                "overcome.",
-            ],
+            text: this.props.text,
+            user: this.props.user,
             textIndex: 0,
             totalCount: 0,
             characterCount: 0,
@@ -66,8 +59,12 @@ export default class TypeRacer extends React.Component {
                     </div>
                 ) : (
                     <div>
+                        <h1>Thankyou {this.state.user}</h1>
                         <h1> Speed : {this.getWPM()} WPM</h1>
                         <h1> Accuracy : {this.getAccuracy()}%</h1>
+                        <button onClick={() => this.props.onNewGame()}>
+                            Try Another
+                        </button>
                     </div>
                 )}
             </div>
